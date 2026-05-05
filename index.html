@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritik Motors | Premium SUV Dealership</title>
+    <meta name="description" content="Discover luxury SUVs at Ritik Motors. Book a test drive today for Toyota Fortuner, Mahindra Scorpio N, and more premium vehicles.">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e60000',
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        panel: '#151515',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased selection:bg-primary selection:text-white">
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="flex flex-col items-center gap-4">
+            <div class="spinner"></div>
+            <div class="text-white font-display tracking-widest text-sm uppercase">Loading Experience</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" data-page="home">
+                    <span class="text-3xl font-display font-black text-white tracking-tight">RITIK<span class="text-primary">MOTORS</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" data-page="home" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="#" data-page="inventory" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Inventory</a>
+                    <a href="#" data-page="about" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#" data-page="contact" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Contact</a>
+                    <button data-page="contact" class="btn-primary px-6 py-2.5 rounded-full text-sm font-bold text-white shadow-lg shadow-primary/20">
+                        Book Test Drive
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" data-page="home" class="block px-3 py-3 text-base font-medium text-white hover:bg-white/5 rounded-lg">Home</a>
+                <a href="#" data-page="inventory" class="block px-3 py-3 text-base font-medium text-white hover:bg-white/5 rounded-lg">Inventory</a>
+                <a href="#" data-page="about" class="block px-3 py-3 text-base font-medium text-white hover:bg-white/5 rounded-lg">About</a>
+                <a href="#" data-page="contact" class="block px-3 py-3 text-base font-medium text-white hover:bg-white/5 rounded-lg">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="pt-20">
+        
+        <!-- HOME PAGE -->
+        <section id="home-page" class="page active">
+            <!-- Hero Section -->
+            <div class="relative min-h-[90vh] flex items-center justify-center hero-bg overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-darker/50 to-darker"></div>
+                
+                <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+                    <span class="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-primary tracking-wider mb-6">PREMIUM DEALERSHIP</span>
+                    <h1 class="text-5xl md:text-7xl font-display font-black text-white mb-6 leading-tight tracking-tight">
+                        Drive Your <span class="text-gradient">Dream SUV</span> Today
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
+                        Experience uncompromised luxury and power. Discover our curated collection of premium SUVs designed for those who demand the best.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button data-page="inventory" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg flex items-center justify-center gap-2">
+                            Explore Collection <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                        <button data-page="contact" class="glass px-8 py-4 rounded-full text-white font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2 border border-white/20">
+                            Book Test Drive <i class="ph-bold ph-steering-wheel"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
+                    <span class="text-xs text-gray-400 mb-2 font-medium tracking-widest uppercase">Scroll</span>
+                    <i class="ph ph-caret-down text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="py-20 bg-darker border-b border-white/5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="glass p-8 rounded-2xl border border-white/5 hover-card text-center group">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+                                <i class="ph-fill ph-shield-check text-3xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold font-display mb-3">Certified Quality</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Every vehicle undergoes a rigorous 150-point inspection ensuring pristine condition.</p>
+                        </div>
+                        <div class="glass p-8 rounded-2xl border border-white/5 hover-card text-center group">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+                                <i class="ph-fill ph-currency-circle-dollar text-3xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold font-display mb-3">Easy Financing</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Flexible EMI options and instant loan approvals through our banking partners.</p>
+                        </div>
+                        <div class="glass p-8 rounded-2xl border border-white/5 hover-card text-center group">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+                                <i class="ph-fill ph-headset text-3xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold font-display mb-3">Premium Support</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">24/7 roadside assistance and priority servicing for all our privileged customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Vehicles -->
+            <div class="py-24 bg-darker">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-end mb-12">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-display font-bold mb-3">Featured <span class="text-primary">Vehicles</span></h2>
+                            <p class="text-gray-400">Discover our handpicked selection of premium SUVs.</p>
+                        </div>
+                        <button data-page="inventory" class="hidden sm:flex items-center gap-2 text-sm font-bold text-white hover:text-primary transition-colors">
+                            View All <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="featured-cars-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                    
+                    <div class="mt-10 text-center sm:hidden">
+                        <button data-page="inventory" class="glass px-6 py-3 rounded-full text-sm font-bold text-white border border-white/10 w-full">
+                            View All Inventory
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="py-20 bg-panel relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-3xl rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+                <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+                    <h2 class="text-4xl md:text-5xl font-display font-black mb-6">Ready to upgrade your ride?</h2>
+                    <p class="text-gray-400 mb-10 text-lg">Schedule a test drive today and experience the thrill firsthand.</p>
+                    <button data-page="contact" class="btn-primary px-10 py-4 rounded-full text-white font-bold text-lg shadow-xl shadow-primary/20">
+                        Book Test Drive Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- INVENTORY PAGE -->
+        <section id="inventory-page" class="page hidden">
+            <div class="bg-darker py-16 min-h-screen">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h1 class="text-4xl md:text-5xl font-display font-black mb-4">Our <span class="text-primary">Inventory</span></h1>
+                        <p class="text-gray-400 max-w-2xl mx-auto">Explore our extensive collection of premium SUVs. Filter by brand to find your perfect match.</p>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="flex flex-wrap justify-center gap-3 mb-12">
+                        <button class="filter-btn active bg-primary text-white border-primary px-6 py-2 rounded-full text-sm font-bold border transition-colors" data-filter="All">All Vehicles</button>
+                        <button class="filter-btn bg-white/5 text-gray-300 border-white/10 hover:bg-white/10 px-6 py-2 rounded-full text-sm font-bold border transition-colors" data-filter="Toyota">Toyota</button>
+                        <button class="filter-btn bg-white/5 text-gray-300 border-white/10 hover:bg-white/10 px-6 py-2 rounded-full text-sm font-bold border transition-colors" data-filter="Mahindra">Mahindra</button>
+                        <button class="filter-btn bg-white/5 text-gray-300 border-white/10 hover:bg-white/10 px-6 py-2 rounded-full text-sm font-bold border transition-colors" data-filter="BMW">BMW</button>
+                        <button class="filter-btn bg-white/5 text-gray-300 border-white/10 hover:bg-white/10 px-6 py-2 rounded-full text-sm font-bold border transition-colors" data-filter="Mercedes">Mercedes</button>
+                        <button class="filter-btn bg-white/5 text-gray-300 border-white/10 hover:bg-white/10 px-6 py-2 rounded-full text-sm font-bold border transition-colors" data-filter="Land Rover">Land Rover</button>
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="inventory-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAR DETAIL PAGE -->
+        <section id="detail-page" class="page hidden">
+            <div class="bg-darker min-h-screen py-10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <button onclick="navigateTo('inventory')" class="flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors group">
+                        <i class="ph-bold ph-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Inventory
+                    </button>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Image Gallery -->
+                        <div>
+                            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative">
+                                <img id="detail-image" src="" alt="Car" class="w-full h-[400px] lg:h-[500px] object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-darker via-transparent to-transparent opacity-60"></div>
+                            </div>
+                        </div>
+
+                        <!-- Details -->
+                        <div class="flex flex-col justify-center">
+                            <span class="text-primary font-bold text-sm tracking-wider uppercase mb-2">Premium SUV</span>
+                            <h1 id="detail-name" class="text-4xl md:text-5xl font-display font-black mb-4">Car Name</h1>
+                            
+                            <div class="flex items-baseline gap-4 mb-8">
+                                <span id="detail-price" class="text-3xl font-bold text-white">₹ Price</span>
+                                <span id="detail-emi" class="text-gray-400 text-sm bg-white/5 px-3 py-1 rounded-full border border-white/10">EMI info</span>
+                            </div>
+
+                            <!-- Specs Grid -->
+                            <div class="grid grid-cols-2 gap-4 mb-10">
+                                <div class="glass p-4 rounded-xl flex items-center gap-4">
+                                    <div class="bg-primary/20 p-3 rounded-lg text-primary">
+                                        <i class="ph-fill ph-engine text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Engine</p>
+                                        <p id="spec-engine" class="font-bold text-white">--</p>
+                                    </div>
+                                </div>
+                                <div class="glass p-4 rounded-xl flex items-center gap-4">
+                                    <div class="bg-primary/20 p-3 rounded-lg text-primary">
+                                        <i class="ph-fill ph-lightning text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Power</p>
+                                        <p id="spec-power" class="font-bold text-white">--</p>
+                                    </div>
+                                </div>
+                                <div class="glass p-4 rounded-xl flex items-center gap-4">
+                                    <div class="bg-primary/20 p-3 rounded-lg text-primary">
+                                        <i class="ph-fill ph-gauge text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Mileage</p>
+                                        <p id="spec-mileage" class="font-bold text-white">--</p>
+                                    </div>
+                                </div>
+                                <div class="glass p-4 rounded-xl flex items-center gap-4">
+                                    <div class="bg-primary/20 p-3 rounded-lg text-primary">
+                                        <i class="ph-fill ph-gas-pump text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Fuel Type</p>
+                                        <p id="spec-type" class="font-bold text-white">--</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Key Features -->
+                            <h3 class="text-xl font-display font-bold mb-4">Key Features</h3>
+                            <ul id="detail-features" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+                                <!-- Populated by JS -->
+                            </ul>
+
+                            <div class="flex gap-4">
+                                <button data-page="contact" class="flex-1 btn-primary py-4 rounded-xl font-bold text-white text-lg shadow-lg shadow-primary/20">
+                                    Book Test Drive
+                                </button>
+                                <a href="https://wa.me/1234567890" target="_blank" class="glass px-6 py-4 rounded-xl hover:bg-green-600/20 hover:text-green-500 hover:border-green-500/50 transition-all flex items-center justify-center border border-white/10 group">
+                                    <i class="ph-fill ph-whatsapp-logo text-2xl text-gray-400 group-hover:text-green-500 transition-colors"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="about-page" class="page hidden">
+            <div class="bg-darker py-20 min-h-screen">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h1 class="text-4xl md:text-5xl font-display font-black mb-4">About <span class="text-primary">Ritik Motors</span></h1>
+                        <p class="text-gray-400 max-w-2xl mx-auto">Setting the standard for luxury automotive retail since 2010.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1560250059-467657dcb899?auto=format&fit=crop&q=80&w=1000" alt="Showroom" class="rounded-2xl shadow-2xl relative z-10 border border-white/10">
+                            <div class="absolute -bottom-6 -right-6 w-full h-full bg-primary/20 rounded-2xl z-0 blur-xl"></div>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-display font-bold mb-6">Our Mission</h2>
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                At Ritik Motors, we don't just sell cars; we deliver an experience. We specialize in high-end, premium SUVs tailored for those who crave performance, luxury, and reliability. 
+                            </p>
+                            <p class="text-gray-400 leading-relaxed mb-8">
+                                With over a decade of excellence, we have established ourselves as the region's most trusted name in luxury automotive sales, offering unmatched customer service and a curated selection of the world's finest vehicles.
+                            </p>
+                            
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="glass p-6 rounded-xl border border-white/5">
+                                    <h4 class="text-3xl font-display font-black text-primary mb-2">10+</h4>
+                                    <p class="text-sm text-gray-400 font-medium">Years Experience</p>
+                                </div>
+                                <div class="glass p-6 rounded-xl border border-white/5">
+                                    <h4 class="text-3xl font-display font-black text-primary mb-2">5000+</h4>
+                                    <p class="text-sm text-gray-400 font-medium">Happy Clients</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="contact-page" class="page hidden">
+            <div class="bg-darker py-20 min-h-screen">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h1 class="text-4xl md:text-5xl font-display font-black mb-4">Get in <span class="text-primary">Touch</span></h1>
+                        <p class="text-gray-400 max-w-2xl mx-auto">Book a test drive or inquire about your dream SUV today.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Contact Info -->
+                        <div class="lg:col-span-1 space-y-6">
+                            <div class="glass p-8 rounded-2xl border border-white/5">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-primary">
+                                    <i class="ph-fill ph-map-pin text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-display mb-2">Visit Showroom</h3>
+                                <p class="text-gray-400 text-sm">123 Luxury Drive, Automotive Hub,<br>New Delhi, 110001</p>
+                            </div>
+                            
+                            <div class="glass p-8 rounded-2xl border border-white/5">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-primary">
+                                    <i class="ph-fill ph-phone text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-display mb-2">Call Us</h3>
+                                <p class="text-gray-400 text-sm mb-1">+91 98765 43210</p>
+                                <p class="text-gray-400 text-sm">Mon-Sun: 9:00 AM - 8:00 PM</p>
+                            </div>
+
+                            <div class="glass p-8 rounded-2xl border border-white/5">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-primary">
+                                    <i class="ph-fill ph-envelope text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-display mb-2">Email Us</h3>
+                                <p class="text-gray-400 text-sm">sales@ritikmotors.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Form & Map -->
+                        <div class="lg:col-span-2 space-y-8">
+                            <div class="glass p-8 md:p-10 rounded-2xl border border-white/5">
+                                <h3 class="text-2xl font-display font-bold mb-6">Send a Message</h3>
+                                <form class="space-y-6">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                                            <input type="text" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-400 mb-2">Phone Number</label>
+                                            <input type="tel" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-400 mb-2">Interested Vehicle (Optional)</label>
+                                        <select class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none">
+                                            <option value="">Select a vehicle</option>
+                                            <option value="Fortuner">Toyota Fortuner</option>
+                                            <option value="Scorpio">Mahindra Scorpio N</option>
+                                            <option value="BMW">BMW X5</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                                        <textarea rows="4" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full btn-primary py-4 rounded-xl font-bold text-white text-lg flex items-center justify-center gap-2">
+                                        Submit Inquiry
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- EMI Calculator Widget inside contact page -->
+                            <div class="glass p-8 rounded-2xl border border-white/5">
+                                <h3 class="text-xl font-display font-bold mb-6 flex items-center gap-2">
+                                    <i class="ph-fill ph-calculator text-primary"></i> EMI Calculator
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-400 mb-2">Loan Amount (₹)</label>
+                                        <input type="number" id="emi-amount" value="2000000" class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-primary">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-400 mb-2">Interest Rate (%)</label>
+                                        <input type="number" id="emi-rate" value="8.5" step="0.1" class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-primary">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-400 mb-2">Tenure (Years)</label>
+                                        <input type="number" id="emi-tenure" value="5" class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-primary">
+                                    </div>
+                                </div>
+                                <div class="bg-primary/10 border border-primary/20 rounded-xl p-4 flex justify-between items-center">
+                                    <span class="text-gray-300 font-medium">Estimated EMI:</span>
+                                    <span id="emi-result" class="text-2xl font-bold text-primary">₹ 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="text-3xl font-display font-black text-white tracking-tight mb-4 block">RITIK<span class="text-primary">MOTORS</span></span>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-6">
+                        Your premier destination for luxury SUVs. Experience unmatched quality, performance, and customer service.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors border border-white/10">
+                            <i class="ph-fill ph-facebook-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors border border-white/10">
+                            <i class="ph-fill ph-instagram-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors border border-white/10">
+                            <i class="ph-fill ph-twitter-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold font-display mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" data-page="home" class="text-gray-400 hover:text-primary transition-colors text-sm">Home</a></li>
+                        <li><a href="#" data-page="inventory" class="text-gray-400 hover:text-primary transition-colors text-sm">Inventory</a></li>
+                        <li><a href="#" data-page="about" class="text-gray-400 hover:text-primary transition-colors text-sm">About Us</a></li>
+                        <li><a href="#" data-page="contact" class="text-gray-400 hover:text-primary transition-colors text-sm">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold font-display mb-4">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">Subscribe for the latest arrivals and offers.</p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-primary flex-1">
+                        <button type="submit" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                            <i class="ph-bold ph-paper-plane-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 Ritik Motors. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/1234567890" target="_blank" class="fixed bottom-6 left-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg shadow-green-500/30 hover:scale-110 transition-transform z-50">
+        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+    </a>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+
+    <!-- Chatbase Integration -->
+    <script>
+        window.chatbaseConfig = {
+            chatbotId: "0Xu0TNYe0VkLG--ALIr87",
+        }
+    </script>
+    <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="0Xu0TNYe0VkLG--ALIr87"
+        domain="www.chatbase.co"
+        defer>
+    </script>
+</body>
+</html>
